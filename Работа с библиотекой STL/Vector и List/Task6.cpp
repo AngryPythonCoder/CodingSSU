@@ -6,14 +6,14 @@
 using namespace std;
 
 int X;
-int func(int sum, int x) { // функция суммирования с условием
+int func(int sum, int x) { // С„СѓРЅРєС†РёСЏ СЃСѓРјРјРёСЂРѕРІР°РЅРёСЏ СЃ СѓСЃР»РѕРІРёРµРј
     if (x % X == 0)
         sum += x;
 
     return sum;
 }
 
-bool even(int x) { // проверка чётности
+bool even(int x) { // РїСЂРѕРІРµСЂРєР° С‡С‘С‚РЅРѕСЃС‚Рё
     return (x % 2 == 0);
 }
 
@@ -23,22 +23,22 @@ int main() {
     int n, a, b, maximum;
     vector<int> v;
 
-    cout << "Введите n, X: ";
-    cin >> n >> X; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n, X: ";
+    cin >> n >> X; // РІРІРѕРґ
     v.resize(n);
 
-    cout << "Последовательность: ";
-    for(int i = 0; i < n; i++) // заполнение
+    cout << "РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ: ";
+    for(int i = 0; i < n; i++) // Р·Р°РїРѕР»РЅРµРЅРёРµ
         cin >> v[i];
 
-    cout << "Сумма элементов, кратных " << X << ": " << accumulate(v.begin(), v.end(), 0, func) << endl; // вывод
-    cout << "Минимальный элемент: " << *min_element(v.begin(), v.end()) << endl;
+    cout << "РЎСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ, РєСЂР°С‚РЅС‹С… " << X << ": " << accumulate(v.begin(), v.end(), 0, func) << endl; // РІС‹РІРѕРґ
+    cout << "РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚: " << *min_element(v.begin(), v.end()) << endl;
 
-    maximum = *max_element(v.begin(), v.end()); // нахождение максимума
-    replace_if(v.begin(), v.end(), even, maximum); // и замена чётных элементов на максимум
+    maximum = *max_element(v.begin(), v.end()); // РЅР°С…РѕР¶РґРµРЅРёРµ РјР°РєСЃРёРјСѓРјР°
+    replace_if(v.begin(), v.end(), even, maximum); // Рё Р·Р°РјРµРЅР° С‡С‘С‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РЅР° РјР°РєСЃРёРјСѓРј
 
-    cout << "Итоговая последовательность: ";
-    for(int i = 0; i < n; i++) // вывод
+    cout << "РС‚РѕРіРѕРІР°СЏ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ: ";
+    for(int i = 0; i < n; i++) // РІС‹РІРѕРґ
         cout << v[i] << " ";
 
     return 0;
