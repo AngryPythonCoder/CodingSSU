@@ -2,26 +2,26 @@
 
 using namespace std;
 
-void arr_in(int *arr, int n) { // функция ввода массива из консоли
+void arr_in(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°СЃСЃРёРІР° РёР· РєРѕРЅСЃРѕР»Рё
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 }
 
-void calc_der(int *der, int *arr, int n) { // подсчёт производной
+void calc_der(int *der, int *arr, int n) { // РїРѕРґСЃС‡С‘С‚ РїСЂРѕРёР·РІРѕРґРЅРѕР№
     for (int i = 0; i < n; i++)
-        der[i] = arr[i+1] * (i + 1); // домножаем коэффициент по формуле (x^n)' = nx^(n-1)
+        der[i] = arr[i+1] * (i + 1); // РґРѕРјРЅРѕР¶Р°РµРј РєРѕСЌС„С„РёС†РёРµРЅС‚ РїРѕ С„РѕСЂРјСѓР»Рµ (x^n)' = nx^(n-1)
 }
 
-void task(int *ans, int *der, int *arr, int n) { // задача
+void task(int *ans, int *der, int *arr, int n) { // Р·Р°РґР°С‡Р°
     fill(ans, ans + 2*n, 0);
 
     for (int i = 0; i < (n+1); i++)
     for (int j = 0; j < n; j++) {
-            ans[i+j] += arr[i] * der[j]; // считаем произведение
+            ans[i+j] += arr[i] * der[j]; // СЃС‡РёС‚Р°РµРј РїСЂРѕРёР·РІРµРґРµРЅРёРµ
     }
 }
 
-void arr_out(int *arr, int n) { // функция вывода массива в консоль
+void arr_out(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
 
@@ -33,22 +33,22 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
     int *arr = new int[n+1];
     int *der = new int[n];
     int *ans = new int[2*n];
 
-    cout << "Коэффициенты многочлена: ";
-    arr_in(arr, n+1); //ввод
+    cout << "РљРѕСЌС„С„РёС†РёРµРЅС‚С‹ РјРЅРѕРіРѕС‡Р»РµРЅР°: ";
+    arr_in(arr, n+1); //РІРІРѕРґ
 
-    calc_der(der, arr, n); //подсчёт производной
+    calc_der(der, arr, n); //РїРѕРґСЃС‡С‘С‚ РїСЂРѕРёР·РІРѕРґРЅРѕР№
 
-    task(ans, der, arr, n); //подсчёт произведения
+    task(ans, der, arr, n); //РїРѕРґСЃС‡С‘С‚ РїСЂРѕРёР·РІРµРґРµРЅРёСЏ
 
-    cout << "Произведение многочлена на его производную: ";
-    arr_out(ans, 2*n); //вывод
+    cout << "РџСЂРѕРёР·РІРµРґРµРЅРёРµ РјРЅРѕРіРѕС‡Р»РµРЅР° РЅР° РµРіРѕ РїСЂРѕРёР·РІРѕРґРЅСѓСЋ: ";
+    arr_out(ans, 2*n); //РІС‹РІРѕРґ
 
     system("pause");
     return 0;

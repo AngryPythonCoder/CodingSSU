@@ -2,17 +2,17 @@
 
 using namespace std;
 
-void arr_in(int *arr, int n) { // функция ввода массива из консоли
+void arr_in(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°СЃСЃРёРІР° РёР· РєРѕРЅСЃРѕР»Рё
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 }
 
-void task(int *double_der, int *arr, int n) { // задача
+void task(int *double_der, int *arr, int n) { // Р·Р°РґР°С‡Р°
     for (int i = 0; i < (n-1); i++)
-        double_der[i] = arr[i+2] * (i + 2) * (i + 1); // домножаем коэффициент дважды по формуле (x^n)' = nx^(n-1)
+        double_der[i] = arr[i+2] * (i + 2) * (i + 1); // РґРѕРјРЅРѕР¶Р°РµРј РєРѕСЌС„С„РёС†РёРµРЅС‚ РґРІР°Р¶РґС‹ РїРѕ С„РѕСЂРјСѓР»Рµ (x^n)' = nx^(n-1)
 }
 
-void arr_out(int *arr, int n) { // функция вывода массива в консоль
+void arr_out(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
 
@@ -24,19 +24,19 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
     int *arr = new int[n+1];
     int *double_der = new int[n-1];
 
-    cout << "Коэффициенты многочлена: ";
-    arr_in(arr, n+1); //ввод
+    cout << "РљРѕСЌС„С„РёС†РёРµРЅС‚С‹ РјРЅРѕРіРѕС‡Р»РµРЅР°: ";
+    arr_in(arr, n+1); //РІРІРѕРґ
 
-    task(double_der, arr, n); //подсчёт двойной производной
+    task(double_der, arr, n); //РїРѕРґСЃС‡С‘С‚ РґРІРѕР№РЅРѕР№ РїСЂРѕРёР·РІРѕРґРЅРѕР№
 
-    cout << "Вторая производная: ";
-    arr_out(double_der, n-1); //вывод
+    cout << "Р’С‚РѕСЂР°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ: ";
+    arr_out(double_der, n-1); //РІС‹РІРѕРґ
 
     system("pause");
     return 0;

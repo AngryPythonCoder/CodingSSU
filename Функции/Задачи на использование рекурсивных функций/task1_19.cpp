@@ -2,14 +2,14 @@
 
 using namespace std;
 
-void special_print(int n, int border, char a) { // специальный вывод
-    for (int i = 0; i < (border - n); i++) //пробелы
+void special_print(int n, int border, char a) { // СЃРїРµС†РёР°Р»СЊРЅС‹Р№ РІС‹РІРѕРґ
+    for (int i = 0; i < (border - n); i++) //РїСЂРѕР±РµР»С‹
         cout << " ";
 
-    for (int i = 0; i < (2*n + 1); i++) //символы
+    for (int i = 0; i < (2*n + 1); i++) //СЃРёРјРІРѕР»С‹
         cout << a;
 
-    for (int i = 0; i < (border - n); i++) //пробелы
+    for (int i = 0; i < (border - n); i++) //РїСЂРѕР±РµР»С‹
         cout << " ";
 
     cout << endl;
@@ -18,10 +18,10 @@ void special_print(int n, int border, char a) { // специальный вывод
 
 void recursion(int current, int border, bool generating) {
     if (current >= 0 && current <= border) {
-        recursion(current-1, border, false); // продолжение треугольника
-        special_print(current, border, '*'); // вывод
+        recursion(current-1, border, false); // РїСЂРѕРґРѕР»Р¶РµРЅРёРµ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°
+        special_print(current, border, '*'); // РІС‹РІРѕРґ
 
-        if (generating) // генерация последующих треугольников
+        if (generating) // РіРµРЅРµСЂР°С†РёСЏ РїРѕСЃР»РµРґСѓСЋС‰РёС… С‚СЂРµСѓРіРѕР»СЊРЅРёРєРѕРІ
             recursion(current+1, border, true);
     }
 }
@@ -31,10 +31,10 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    recursion(1, n, true); //вызов
+    recursion(1, n, true); //РІС‹Р·РѕРІ
 
     system("pause");
     return 0;

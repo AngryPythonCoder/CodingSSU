@@ -2,15 +2,15 @@
 
 using namespace std;
 
-long long recursion(int x) { // рекурсия
+long long recursion(int x) { // СЂРµРєСѓСЂСЃРёСЏ
     if (x > 1)
         return x * recursion(x - 1);
 
-    else // при единице вернёт 1ж
+    else // РїСЂРё РµРґРёРЅРёС†Рµ РІРµСЂРЅС‘С‚ 1Р¶
         return 1;
 }
 
-long long func(int x) { // не рекурсия
+long long func(int x) { // РЅРµ СЂРµРєСѓСЂСЃРёСЏ
     long long res = 1;
 
     for (int i = 1; i <= x; i++)
@@ -24,14 +24,14 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    cout << "Факториал через рекурсию: ";
-    cout << recursion(n) << endl; // вывод
+    cout << "Р¤Р°РєС‚РѕСЂРёР°Р» С‡РµСЂРµР· СЂРµРєСѓСЂСЃРёСЋ: ";
+    cout << recursion(n) << endl; // РІС‹РІРѕРґ
 
-    cout << "Факториал не через рекурсию: ";
-    cout << func(n) << endl; // вывод
+    cout << "Р¤Р°РєС‚РѕСЂРёР°Р» РЅРµ С‡РµСЂРµР· СЂРµРєСѓСЂСЃРёСЋ: ";
+    cout << func(n) << endl; // РІС‹РІРѕРґ
 
     system("pause");
     return 0;

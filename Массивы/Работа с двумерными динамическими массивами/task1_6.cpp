@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
         matr[i] = new int[m];
 
@@ -12,7 +12,7 @@ void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
     }
 }
 
-void matrix_out(int **matr, int n, int m) { // функция вывода
+void matrix_out(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << " ";
@@ -21,17 +21,17 @@ void matrix_out(int **matr, int n, int m) { // функция вывода
     }
 }
 
-void task(int **matr, int n, int m) { // задача
+void task(int **matr, int n, int m) { // Р·Р°РґР°С‡Р°
     int minimum = INT_MAX, maximum = 0, row_min, row_max;
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (matr[i][j] < minimum) { // перезапись минимума
+            if (matr[i][j] < minimum) { // РїРµСЂРµР·Р°РїРёСЃСЊ РјРёРЅРёРјСѓРјР°
                 minimum = matr[i][j];
                 row_min = i;
             }
 
-            if (matr[i][j] > maximum) { // перезапись максимума
+            if (matr[i][j] > maximum) { // РїРµСЂРµР·Р°РїРёСЃСЊ РјР°РєСЃРёРјСѓРјР°
                 maximum = matr[i][j];
                 row_max = i;
             }
@@ -46,18 +46,18 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
     int **matr = new int *[n];
 
-    matrix_in(matr, n, n); // ввод матрицы
+    matrix_in(matr, n, n); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
 
-    task(matr, n, n); // выполнение задачи
+    task(matr, n, n); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°С‡Рё
 
     cout << endl;
 
-    matrix_out(matr, n, n); // вывод матрицы
+    matrix_out(matr, n, n); // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 
     system("pause");
     return 0;

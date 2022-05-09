@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void arr_out(int *arr, int length) { // функция вывода массива в консоль
+void arr_out(int *arr, int length) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
     for (int i = 0; i < length; i++)
         cout << arr[i] << " ";
 
@@ -13,44 +13,44 @@ void arr_out(int *arr, int length) { // функция вывода массива в консоль
 int main() {
     setlocale(LC_ALL, "RUS");
 
-    int b = -1, a = 21; // базовые значения максимума, минимума
-    int *maximum = &b, *minimum = &a; // указатели на максимум, минимум
+    int b = -1, a = 21; // Р±Р°Р·РѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РјР°РєСЃРёРјСѓРјР°, РјРёРЅРёРјСѓРјР°
+    int *maximum = &b, *minimum = &a; // СѓРєР°Р·Р°С‚РµР»Рё РЅР° РјР°РєСЃРёРјСѓРј, РјРёРЅРёРјСѓРј
 
     int n;
     float average = 0;
     int *arr = new int [n];
     srand((unsigned)time(NULL));
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    for (int i = 0; i < n; i++) // генерация значений в массиве
+    for (int i = 0; i < n; i++) // РіРµРЅРµСЂР°С†РёСЏ Р·РЅР°С‡РµРЅРёР№ РІ РјР°СЃСЃРёРІРµ
         arr[i] = rand() % 21;
 
-    cout << "Массив: ";
-    arr_out(arr, n); // вывод массива
+    cout << "РњР°СЃСЃРёРІ: ";
+    arr_out(arr, n); // РІС‹РІРѕРґ РјР°СЃСЃРёРІР°
 
     for (int i = 0; i < n; i++) {
-        if (arr[i] < *minimum) // ищем первый минимум
+        if (arr[i] < *minimum) // РёС‰РµРј РїРµСЂРІС‹Р№ РјРёРЅРёРјСѓРј
             minimum = &arr[i];
 
-        if (arr[i] >= *maximum) // ищем последниий максимум
+        if (arr[i] >= *maximum) // РёС‰РµРј РїРѕСЃР»РµРґРЅРёРёР№ РјР°РєСЃРёРјСѓРј
             maximum = &arr[i];
     }
 
     if (maximum < minimum)
-        cout << "MAX перед MIN" << endl;
+        cout << "MAX РїРµСЂРµРґ MIN" << endl;
 
     else if (maximum == (minimum + 1))
-        cout << "0 элементов между MAX и MIN" << endl;
+        cout << "0 СЌР»РµРјРµРЅС‚РѕРІ РјРµР¶РґСѓ MAX Рё MIN" << endl;
 
     else {
-        for (int *current = minimum+1; current < maximum; current++) // с помощью итератора проходим по элементам в диапазоне
+        for (int *current = minimum+1; current < maximum; current++) // СЃ РїРѕРјРѕС‰СЊСЋ РёС‚РµСЂР°С‚РѕСЂР° РїСЂРѕС…РѕРґРёРј РїРѕ СЌР»РµРјРµРЅС‚Р°Рј РІ РґРёР°РїР°Р·РѕРЅРµ
             average += *current;
 
-        average /= (maximum - minimum) - 1; // считаем среднее арифметическое
+        average /= (maximum - minimum) - 1; // СЃС‡РёС‚Р°РµРј СЃСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ
 
-        cout << "Среднее арифметическое: " << average; // вывод
+        cout << "РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ: " << average; // РІС‹РІРѕРґ
     }
 
     system("pause");

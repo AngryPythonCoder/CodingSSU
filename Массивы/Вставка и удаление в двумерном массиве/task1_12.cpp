@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
         matr[i] = new int[m];
 
@@ -12,7 +12,7 @@ void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
     }
 }
 
-void matrix_out(int **matr, int n, int m) { // функция вывода
+void matrix_out(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << " ";
@@ -21,12 +21,12 @@ void matrix_out(int **matr, int n, int m) { // функция вывода
     }
 }
 
-int task(int **matr, int n, int m) { // задача
-    int current = 0; // индекс позиции для заполнения
+int task(int **matr, int n, int m) { // Р·Р°РґР°С‡Р°
+    int current = 0; // РёРЅРґРµРєСЃ РїРѕР·РёС†РёРё РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ
 
-    for (int i = 0; i < n; i++) // перезаполнение
-        if (*min_element(matr[i], matr[i]+m) <= 0) // если в строчке есть неположительные элементы
-            matr[current++] = matr[i];             // она перезаписывается
+    for (int i = 0; i < n; i++) // РїРµСЂРµР·Р°РїРѕР»РЅРµРЅРёРµ
+        if (*min_element(matr[i], matr[i]+m) <= 0) // РµСЃР»Рё РІ СЃС‚СЂРѕС‡РєРµ РµСЃС‚СЊ РЅРµРїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹
+            matr[current++] = matr[i];             // РѕРЅР° РїРµСЂРµР·Р°РїРёСЃС‹РІР°РµС‚СЃСЏ
 
     return current;
 }
@@ -36,19 +36,19 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
     int **matr = new int *[n];
 
-    cout << endl << "Начальная матрица: " << endl;
-    matrix_in(matr, n, n); // ввод матрицы
+    cout << endl << "РќР°С‡Р°Р»СЊРЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_in(matr, n, n); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
     cout << endl;
 
-    int length = task(matr, n, n); // выполнение задачи, возвращает итоговую длину
+    int length = task(matr, n, n); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°С‡Рё, РІРѕР·РІСЂР°С‰Р°РµС‚ РёС‚РѕРіРѕРІСѓСЋ РґР»РёРЅСѓ
 
-    cout << "Конечная матрица: " << endl;
-    matrix_out(matr, length, n); // вывод матрицы
+    cout << "РљРѕРЅРµС‡РЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_out(matr, length, n); // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 
     system("pause");
     return 0;

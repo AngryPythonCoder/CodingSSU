@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
         matr[i] = new int[m];
 
@@ -11,18 +11,18 @@ void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
     }
 }
 
-void task(int **matr, int n, int m) { // задача
+void task(int **matr, int n, int m) { // Р·Р°РґР°С‡Р°
     double answer;
     int cnt = 0;
 
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
             if (i >= min(j, m-1-j) && i <= max(j, m-1-j) && (matr[i][j] % 2 == 1)) {
-                answer += matr[i][j]; // прибавляем к сумме нужный элемент
-                cnt++;             // увеличиваем количество
+                answer += matr[i][j]; // РїСЂРёР±Р°РІР»СЏРµРј Рє СЃСѓРјРјРµ РЅСѓР¶РЅС‹Р№ СЌР»РµРјРµРЅС‚
+                cnt++;             // СѓРІРµР»РёС‡РёРІР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ
             }
 
-    cout << "Среднее арифметическое: " << answer / cnt << endl;
+    cout << "РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ: " << answer / cnt << endl;
 }
 
 int main() {
@@ -30,14 +30,14 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
     int **matr = new int *[n];
 
-    matrix_in(matr, n, n); // ввод матрицы
+    matrix_in(matr, n, n); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
 
-    task(matr, n, n); // выполнение задачи
+    task(matr, n, n); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°С‡Рё
 
     system("pause");
     return 0;

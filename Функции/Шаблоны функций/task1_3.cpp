@@ -3,7 +3,7 @@
 using namespace std;
 
 template <typename my_type>
-void matrix_in(my_type **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(my_type **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
         matr[i] = new my_type[m];
 
@@ -14,7 +14,7 @@ void matrix_in(my_type **matr, int n, int m) { // функция ввода матрицы
 
 
 template <typename my_type>
-void matrix_out(my_type **matr, int n, int m) { // функция вывода
+void matrix_out(my_type **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << " ";
@@ -24,7 +24,7 @@ void matrix_out(my_type **matr, int n, int m) { // функция вывода
 }
 
 template <typename my_type>
-void task(my_type **arr, int n) { // задача
+void task(my_type **arr, int n) { // Р·Р°РґР°С‡Р°
     for(int i = 0; i < n / 2; i++)
         swap(arr[2*i], arr[2*i+1]);
 }
@@ -34,49 +34,49 @@ int main() {
 
     int n, m, k;
 
-    cout << "Введите '<n> <m> <k>', k: 0 - int, 1 - float, 2 - char" << endl;
+    cout << "Р’РІРµРґРёС‚Рµ '<n> <m> <k>', k: 0 - int, 1 - float, 2 - char" << endl;
 
     cin >> n >> m >> k;
 
-    switch(k) { // вызов различных типов данных
+    switch(k) { // РІС‹Р·РѕРІ СЂР°Р·Р»РёС‡РЅС‹С… С‚РёРїРѕРІ РґР°РЅРЅС‹С…
         case 0: {
             int **matr = new int *[n];
 
-            cout << endl << "Начальная матрица: " << endl; // ввод
+            cout << endl << "РќР°С‡Р°Р»СЊРЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl; // РІРІРѕРґ
             matrix_in(matr, n, m);
 
             cout << endl;
-            task(matr, n); // выполнение задания
+            task(matr, n); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°РЅРёСЏ
 
-            cout << "Итоговая матрица: " << endl; // вывод
+            cout << "РС‚РѕРіРѕРІР°СЏ РјР°С‚СЂРёС†Р°: " << endl; // РІС‹РІРѕРґ
             matrix_out(matr, n, m);
             break;
         }
 
-        case 1: { // аналогично для float
+        case 1: { // Р°РЅР°Р»РѕРіРёС‡РЅРѕ РґР»СЏ float
             float **matr = new float *[n];
 
-            cout << endl << "Начальная матрица: " << endl;
+            cout << endl << "РќР°С‡Р°Р»СЊРЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
             matrix_in(matr, n, m);
 
             cout << endl;
             task(matr, n);
 
-            cout << "Итоговая матрица: " << endl;
+            cout << "РС‚РѕРіРѕРІР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
             matrix_out(matr, n, m);
             break;
         }
 
-        case 2: { // аналогично для char
+        case 2: { // Р°РЅР°Р»РѕРіРёС‡РЅРѕ РґР»СЏ char
             char **matr = new char *[n];
 
-            cout << endl << "Начальная матрица: " << endl;
+            cout << endl << "РќР°С‡Р°Р»СЊРЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
             matrix_in(matr, n, m);
 
             cout << endl;
             task(matr, n);
 
-            cout << "Итоговая матрица: " << endl;
+            cout << "РС‚РѕРіРѕРІР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
             matrix_out(matr, n, m);
             break;
         }

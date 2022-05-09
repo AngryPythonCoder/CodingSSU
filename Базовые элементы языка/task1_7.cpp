@@ -8,12 +8,12 @@ int main() {
 
 	double x, y, result;
 
-	cout << "Введите два числа через пробел: ";
-	cin >> x >> y; //ввод
+	cout << "Р’РІРµРґРёС‚Рµ РґРІР° С‡РёСЃР»Р° С‡РµСЂРµР· РїСЂРѕР±РµР»: ";
+	cin >> x >> y; //РІРІРѕРґ
 
-	result = exp(sqrt(log((x * x + y * y) / (cos(x) * cos(x) + cos(x * x))))); //формула
+	result = exp(sqrt(log((x * x + y * y) / (cos(x) * cos(x) + cos(x * x))))); //С„РѕСЂРјСѓР»Р°
 
-	cout << "Ответ: " << result << endl; //вывод
+	cout << "РћС‚РІРµС‚: " << result << endl; //РІС‹РІРѕРґ
 
     system("pause");
 	return 0;

@@ -3,12 +3,12 @@
 
 using namespace std;
 
-void arr_in(int *arr, int n) { // функция ввода массива из консоли
+void arr_in(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°СЃСЃРёРІР° РёР· РєРѕРЅСЃРѕР»Рё
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 }
 
-void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
         matr[i] = new int[m];
 
@@ -17,7 +17,7 @@ void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
     }
 }
 
-void matrix_out(int **matr, int n, int m) { // функция вывода
+void matrix_out(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << " ";
@@ -29,17 +29,17 @@ void matrix_out(int **matr, int n, int m) { // функция вывода
 int task(int **matr, int *arr, int n, int m) {
     int inserts = 0;
 
-    for(int i = 0; i < n; i++) // подсчёт количества дополнительных строк
-        if (*min_element(matr[i],matr[i]+m) > 0) // если все элементы положительны, то минимальный > 0
+    for(int i = 0; i < n; i++) // РїРѕРґСЃС‡С‘С‚ РєРѕР»РёС‡РµСЃС‚РІР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… СЃС‚СЂРѕРє
+        if (*min_element(matr[i],matr[i]+m) > 0) // РµСЃР»Рё РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹, С‚Рѕ РјРёРЅРёРјР°Р»СЊРЅС‹Р№ > 0
             inserts++;
 
-    int current = n + inserts - 1; // поддерживаем индекс для вставки
+    int current = n + inserts - 1; // РїРѕРґРґРµСЂР¶РёРІР°РµРј РёРЅРґРµРєСЃ РґР»СЏ РІСЃС‚Р°РІРєРё
 
-    for (int i = (n-1); i >= 0; i--) { // перезаполнение
-        if (*min_element(matr[i], matr[i]+m) > 0) // при выполнения условия
-            matr[current--] = arr;                // сначала добавляем x
+    for (int i = (n-1); i >= 0; i--) { // РїРµСЂРµР·Р°РїРѕР»РЅРµРЅРёРµ
+        if (*min_element(matr[i], matr[i]+m) > 0) // РїСЂРё РІС‹РїРѕР»РЅРµРЅРёСЏ СѓСЃР»РѕРІРёСЏ
+            matr[current--] = arr;                // СЃРЅР°С‡Р°Р»Р° РґРѕР±Р°РІР»СЏРµРј x
 
-        matr[current--] = matr[i];                // затем перезаписываем строчку (она будет перед x)
+        matr[current--] = matr[i];                // Р·Р°С‚РµРј РїРµСЂРµР·Р°РїРёСЃС‹РІР°РµРј СЃС‚СЂРѕС‡РєСѓ (РѕРЅР° Р±СѓРґРµС‚ РїРµСЂРµРґ x)
     }
 
     return n + inserts;
@@ -50,24 +50,24 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    int **matr = new int *[2*n]; // количество строк с запасом
+    int **matr = new int *[2*n]; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє СЃ Р·Р°РїР°СЃРѕРј
     int *arr = new int[n];
 
-    cout << "Строка для вставки: "; // ввод x
+    cout << "РЎС‚СЂРѕРєР° РґР»СЏ РІСЃС‚Р°РІРєРё: "; // РІРІРѕРґ x
     arr_in(arr, n);
     cout << endl;
 
-    cout << "Начальная матрица: " << endl;
-    matrix_in(matr, n, n); // ввод матрицы
+    cout << "РќР°С‡Р°Р»СЊРЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_in(matr, n, n); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
     cout << endl;
 
-    int length = task(matr, arr, n, n); // выполнение задачи, возвращает итоговую длину
+    int length = task(matr, arr, n, n); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°С‡Рё, РІРѕР·РІСЂР°С‰Р°РµС‚ РёС‚РѕРіРѕРІСѓСЋ РґР»РёРЅСѓ
 
-    cout << "Конечная матрица: " << endl;
-    matrix_out(matr, length, n); // вывод матрицы
+    cout << "РљРѕРЅРµС‡РЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_out(matr, length, n); // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 
     system("pause");
     return 0;

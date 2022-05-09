@@ -5,11 +5,11 @@ using namespace std;
 int main() {
     int year;
 
-    cin >> year; //ввод
+    cin >> year; //РІРІРѕРґ
 
-    year = (year + 56) % 60; //синхронизация с шестидесятилетним циклом
+    year = (year + 56) % 60; //СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ СЃ С€РµСЃС‚РёРґРµСЃСЏС‚РёР»РµС‚РЅРёРј С†РёРєР»РѕРј
 
-    switch(year % 10) { //цвет
+    switch(year % 10) { //С†РІРµС‚
         case 0: case 1: cout << "Green "; break;
         case 2: case 3: cout << "Red "; break;
         case 4: case 5: cout << "Yellow "; break;
@@ -17,7 +17,7 @@ int main() {
         case 8: case 9: cout << "Blue "; break;
     }
 
-    switch(year % 12) { //животное
+    switch(year % 12) { //Р¶РёРІРѕС‚РЅРѕРµ
         case 0: cout << "Rat" << endl; break;
         case 1: cout << "Ox" << endl; break;
         case 2: cout << "Tiger" << endl; break;

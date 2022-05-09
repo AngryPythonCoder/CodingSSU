@@ -3,12 +3,12 @@
 
 using namespace std;
 
-void arr_in(int *arr, int n) { // функция ввода массива из консоли
+void arr_in(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°СЃСЃРёРІР° РёР· РєРѕРЅСЃРѕР»Рё
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 }
 
-void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
         matr[i] = new int[m];
 
@@ -17,7 +17,7 @@ void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
     }
 }
 
-void matrix_out(int **matr, int n, int m) { // функция вывода
+void matrix_out(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << " ";
@@ -26,7 +26,7 @@ void matrix_out(int **matr, int n, int m) { // функция вывода
     }
 }
 
-bool condition(int **matr, int n, int column, int x) { // проверка, что сумма столбца != X
+bool condition(int **matr, int n, int column, int x) { // РїСЂРѕРІРµСЂРєР°, С‡С‚Рѕ СЃСѓРјРјР° СЃС‚РѕР»Р±С†Р° != X
     int sum = 0;
 
     for (int i = 0; i < n; i++)
@@ -38,10 +38,10 @@ bool condition(int **matr, int n, int column, int x) { // проверка, что сумма ст
 int task(int **matr, int n, int m, int x) {
     int current = 0;
 
-    for (int j = 0; j < m; j++) { // перезаполнение
-        if (condition(matr, n, j, x)) { // если сумма != x
+    for (int j = 0; j < m; j++) { // РїРµСЂРµР·Р°РїРѕР»РЅРµРЅРёРµ
+        if (condition(matr, n, j, x)) { // РµСЃР»Рё СЃСѓРјРјР° != x
             for (int i = 0; i < n; i++)
-                matr[i][current] = matr[i][j]; // тогда перезаписываем
+                matr[i][current] = matr[i][j]; // С‚РѕРіРґР° РїРµСЂРµР·Р°РїРёСЃС‹РІР°РµРј
             current++;
         }
     }
@@ -53,22 +53,22 @@ int main() {
 
     int n, x;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    cout << "Введите x: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ x: "; // РІРІРѕРґ
     cin >> x;
 
     int **matr = new int *[n];
 
-    cout << endl << "Начальная матрица: " << endl;
-    matrix_in(matr, n, n); // ввод матрицы
+    cout << endl << "РќР°С‡Р°Р»СЊРЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_in(matr, n, n); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
     cout << endl;
 
-    int length = task(matr, n, n, x); // выполнение задачи, возвращает итоговую длину
+    int length = task(matr, n, n, x); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°С‡Рё, РІРѕР·РІСЂР°С‰Р°РµС‚ РёС‚РѕРіРѕРІСѓСЋ РґР»РёРЅСѓ
 
-    cout << "Конечная матрица: " << endl;
-    matrix_out(matr, n, length); // вывод матрицы
+    cout << "РљРѕРЅРµС‡РЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_out(matr, n, length); // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 
     system("pause");
     return 0;

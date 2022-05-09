@@ -2,15 +2,15 @@
 
 using namespace std;
 
-long long recursion(int k, int n) { // рекурсия
+long long recursion(int k, int n) { // СЂРµРєСѓСЂСЃРёСЏ
     if (k == 0)
-        return 1; // способов выбрать 0 элементов всегда 1
+        return 1; // СЃРїРѕСЃРѕР±РѕРІ РІС‹Р±СЂР°С‚СЊ 0 СЌР»РµРјРµРЅС‚РѕРІ РІСЃРµРіРґР° 1
 
     else
-        return recursion(k - 1, n) * (n + 1 - k) / k; // вычисляем по формуле
+        return recursion(k - 1, n) * (n + 1 - k) / k; // РІС‹С‡РёСЃР»СЏРµРј РїРѕ С„РѕСЂРјСѓР»Рµ
 }
 
-long long factorial(int x) { // вспомогательная функция
+long long factorial(int x) { // РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ
     long long res = 1;
 
     for (int i = 1; i <= x; i++)
@@ -19,7 +19,7 @@ long long factorial(int x) { // вспомогательная функция
     return res;
 }
 
-long long func(int k, int n) { // не рекурсия
+long long func(int k, int n) { // РЅРµ СЂРµРєСѓСЂСЃРёСЏ
     return factorial(n) / (factorial(k) * factorial(n-k));
 }
 
@@ -28,17 +28,17 @@ int main() {
 
     int n, k;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    cout << "Введите k: ";
+    cout << "Р’РІРµРґРёС‚Рµ k: ";
     cin >> k;
 
-    cout << "C из " << n << " по " << k << " через рекурсию: ";
-    cout << recursion(k, n) << endl; // вывод
+    cout << "C РёР· " << n << " РїРѕ " << k << " С‡РµСЂРµР· СЂРµРєСѓСЂСЃРёСЋ: ";
+    cout << recursion(k, n) << endl; // РІС‹РІРѕРґ
 
-    cout << "C из " << n << " по " << k << " не через рекурсию: ";
-    cout << func(k, n) << endl; // вывод
+    cout << "C РёР· " << n << " РїРѕ " << k << " РЅРµ С‡РµСЂРµР· СЂРµРєСѓСЂСЃРёСЋ: ";
+    cout << func(k, n) << endl; // РІС‹РІРѕРґ
 
     system("pause");
     return 0;

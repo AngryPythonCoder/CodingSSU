@@ -3,23 +3,23 @@
 
 using namespace std;
 
-void arr_in(int *arr, int n) { // функция ввода массива из консоли
+void arr_in(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°СЃСЃРёРІР° РёР· РєРѕРЅСЃРѕР»Рё
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 }
 
-int task(int *arr, int n, int curr, int x, int y) { // задача
+int task(int *arr, int n, int curr, int x, int y) { // Р·Р°РґР°С‡Р°
     for (int i = (n-1); i >= 0; i--) {
-        if (arr[i] == x)      // если элемент = x
-            arr[curr--] = y;  // то записываем y перед перезаписанными элементами
+        if (arr[i] == x)      // РµСЃР»Рё СЌР»РµРјРµРЅС‚ = x
+            arr[curr--] = y;  // С‚Рѕ Р·Р°РїРёСЃС‹РІР°РµРј y РїРµСЂРµРґ РїРµСЂРµР·Р°РїРёСЃР°РЅРЅС‹РјРё СЌР»РµРјРµРЅС‚Р°РјРё
 
-        arr[curr--] = arr[i]; // перезаписываем i-ый элемент
+        arr[curr--] = arr[i]; // РїРµСЂРµР·Р°РїРёСЃС‹РІР°РµРј i-С‹Р№ СЌР»РµРјРµРЅС‚
     }
 
-    return curr; // возвращаем новую длину
+    return curr; // РІРѕР·РІСЂР°С‰Р°РµРј РЅРѕРІСѓСЋ РґР»РёРЅСѓ
 }
 
-void arr_out(int *arr, int n) { // функция вывода массива в консоль
+void arr_out(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
 
@@ -31,25 +31,25 @@ int main() {
 
     int n, x;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    cout << "Введите x: ";
+    cout << "Р’РІРµРґРёС‚Рµ x: ";
     cin >> x;
 
-    int *arr = new int[2*n]; // массив объявляем с запасом, больше 2n быть не может
+    int *arr = new int[2*n]; // РјР°СЃСЃРёРІ РѕР±СЉСЏРІР»СЏРµРј СЃ Р·Р°РїР°СЃРѕРј, Р±РѕР»СЊС€Рµ 2n Р±С‹С‚СЊ РЅРµ РјРѕР¶РµС‚
 
-    cout << "Массив: ";
-    arr_in(arr, n); // ввод
+    cout << "РњР°СЃСЃРёРІ: ";
+    arr_in(arr, n); // РІРІРѕРґ
 
     int minimum = *min_element(arr, arr+n);
-    int len = n + count(arr, arr+n, minimum); // итоговая длина
+    int len = n + count(arr, arr+n, minimum); // РёС‚РѕРіРѕРІР°СЏ РґР»РёРЅР°
     int curr = len - 1;
 
-    task(arr, n, curr, minimum, x); // преобразуем массив
+    task(arr, n, curr, minimum, x); // РїСЂРµРѕР±СЂР°Р·СѓРµРј РјР°СЃСЃРёРІ
 
-    cout << "Новый массив: ";
-    arr_out(arr, len); // вывод
+    cout << "РќРѕРІС‹Р№ РјР°СЃСЃРёРІ: ";
+    arr_out(arr, len); // РІС‹РІРѕРґ
 
     system("pause");
     return 0;

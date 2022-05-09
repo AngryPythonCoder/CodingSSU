@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void line_out(int *arr, int n) { // функция вывода строчки треугольника в консоль
+void line_out(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃС‚СЂРѕС‡РєРё С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РІ РєРѕРЅСЃРѕР»СЊ
     for (int i = 0; i < n; i++)
         cout << setw(5) << arr[i+1] << " ";
 
@@ -17,11 +17,11 @@ int main() {
 
     int n, S, len;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
     len = max(10, n);
 
-    int *arr = new int[len+2];     //два массива для генерации новой строки треугольника на основе старой
+    int *arr = new int[len+2];     //РґРІР° РјР°СЃСЃРёРІР° РґР»СЏ РіРµРЅРµСЂР°С†РёРё РЅРѕРІРѕР№ СЃС‚СЂРѕРєРё С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РЅР° РѕСЃРЅРѕРІРµ СЃС‚Р°СЂРѕР№
     int *new_arr = new int[len+2];
 
     fill(arr, arr + (len+2), 0);
@@ -29,24 +29,24 @@ int main() {
 
     new_arr[1] = 1;
     cout << endl;
-    line_out(new_arr, 1); // вывод нулевой строки
+    line_out(new_arr, 1); // РІС‹РІРѕРґ РЅСѓР»РµРІРѕР№ СЃС‚СЂРѕРєРё
 
-    if (n == 0) // костыль для нуля
+    if (n == 0) // РєРѕСЃС‚С‹Р»СЊ РґР»СЏ РЅСѓР»СЏ
         S = 1;
 
     for (int i = 1; i <= len; i++) {
         swap(arr, new_arr);
 
         for (int j = 1; j <= (i+1); j++)
-            new_arr[j] = arr[j-1] + arr[j]; // подсчёт новой строки
+            new_arr[j] = arr[j-1] + arr[j]; // РїРѕРґСЃС‡С‘С‚ РЅРѕРІРѕР№ СЃС‚СЂРѕРєРё
 
         if (i == n)
-            S = accumulate(new_arr, new_arr + (n+2), 0); // подсчёт 2^k
+            S = accumulate(new_arr, new_arr + (n+2), 0); // РїРѕРґСЃС‡С‘С‚ 2^k
 
-        line_out(new_arr, i+1); // вывод строки
+        line_out(new_arr, i+1); // РІС‹РІРѕРґ СЃС‚СЂРѕРєРё
     }
 
-    cout << endl << "2^" << n << " = " << S << endl; // вывод 2^k
+    cout << endl << "2^" << n << " = " << S << endl; // РІС‹РІРѕРґ 2^k
 
     return 0;
 }

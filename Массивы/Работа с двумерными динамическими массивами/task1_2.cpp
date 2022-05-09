@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
         matr[i] = new int[m];
 
@@ -11,7 +11,7 @@ void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
     }
 }
 
-void matrix_out(int **matr, int n, int m) { // функция вывода
+void matrix_out(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << " ";
@@ -20,10 +20,10 @@ void matrix_out(int **matr, int n, int m) { // функция вывода
     }
 }
 
-void task(int **matr, int n, int m) { // задача
+void task(int **matr, int n, int m) { // Р·Р°РґР°С‡Р°
     for (int i = 0; i < n; i++)
         for (int j = 0; j < (m / 2); j++)
-            swap(matr[i][2*j], matr[i][2*j+1]); // меняем местами элементы из соответствующих столбцов
+            swap(matr[i][2*j], matr[i][2*j+1]); // РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё СЌР»РµРјРµРЅС‚С‹ РёР· СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёС… СЃС‚РѕР»Р±С†РѕРІ
 }
 
 int main() {
@@ -31,18 +31,18 @@ int main() {
 
     int n;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
     int **matr = new int *[n];
 
-    matrix_in(matr, n, n); // ввод матрицы
+    matrix_in(matr, n, n); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
 
-    task(matr, n, n); // выполнение задачи
+    task(matr, n, n); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°С‡Рё
 
     cout << endl;
 
-    matrix_out(matr, n, n); // вывод матрицы
+    matrix_out(matr, n, n); // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 
     system("pause");
     return 0;

@@ -3,21 +3,21 @@
 
 using namespace std;
 
-void arr_in(int *arr, int n) { // функция ввода массива из консоли
+void arr_in(int *arr, int n) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°СЃСЃРёРІР° РёР· РєРѕРЅСЃРѕР»Рё
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 }
 
-void matrix_in(int **matr, int n, int m) { // функция ввода матрицы
+void matrix_in(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІРІРѕРґР° РјР°С‚СЂРёС†С‹
     for (int i = 0; i < n; i++) {
-        matr[i] = new int[2*m]; // количество столбцов с запасом
+        matr[i] = new int[2*m]; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ СЃ Р·Р°РїР°СЃРѕРј
 
         for (int j = 0; j < m; j++)
             cin >> matr[i][j];
     }
 }
 
-void matrix_out(int **matr, int n, int m) { // функция вывода
+void matrix_out(int **matr, int n, int m) { // С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << " ";
@@ -26,10 +26,10 @@ void matrix_out(int **matr, int n, int m) { // функция вывода
     }
 }
 
-bool condition(int **matr, int n, int column, int y) { //функция условия, что сумма столбца кратна Y
+bool condition(int **matr, int n, int column, int y) { //С„СѓРЅРєС†РёСЏ СѓСЃР»РѕРІРёСЏ, С‡С‚Рѕ СЃСѓРјРјР° СЃС‚РѕР»Р±С†Р° РєСЂР°С‚РЅР° Y
     int sum = 0;
 
-    for (int i = 0; i < n; i++) // считаем сумму
+    for (int i = 0; i < n; i++) // СЃС‡РёС‚Р°РµРј СЃСѓРјРјСѓ
         sum += matr[i][column];
 
     return (sum % y == 0);
@@ -38,20 +38,20 @@ bool condition(int **matr, int n, int column, int y) { //функция условия, что су
 int task(int **matr, int *arr, int n, int m, int y) {
     int inserts = 0;
 
-    for(int i = 0; i < n; i++) //подсчёт количества дополнительных столбцов
+    for(int i = 0; i < n; i++) //РїРѕРґСЃС‡С‘С‚ РєРѕР»РёС‡РµСЃС‚РІР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… СЃС‚РѕР»Р±С†РѕРІ
         if (condition(matr, n, i, y))
             inserts++;
 
-    int current = m + inserts - 1; // поддерживаем индекс для вставки
+    int current = m + inserts - 1; // РїРѕРґРґРµСЂР¶РёРІР°РµРј РёРЅРґРµРєСЃ РґР»СЏ РІСЃС‚Р°РІРєРё
 
-    for (int j = (m-1); j >= 0; j--) { // перезаполнение
+    for (int j = (m-1); j >= 0; j--) { // РїРµСЂРµР·Р°РїРѕР»РЅРµРЅРёРµ
         for (int i = 0; i < n; i++)
-            matr[i][current] = matr[i][j]; // сначала перезаписываем столбец
+            matr[i][current] = matr[i][j]; // СЃРЅР°С‡Р°Р»Р° РїРµСЂРµР·Р°РїРёСЃС‹РІР°РµРј СЃС‚РѕР»Р±РµС†
         current--;
 
-        if (condition(matr, n, j, y)) {   // затем, при выполненном условии
+        if (condition(matr, n, j, y)) {   // Р·Р°С‚РµРј, РїСЂРё РІС‹РїРѕР»РЅРµРЅРЅРѕРј СѓСЃР»РѕРІРёРё
             for (int i = 0; i < m; i++)
-               matr[i][current] = arr[j];  // добавляем столбец x (он окажется перед проверенным столбцом)
+               matr[i][current] = arr[j];  // РґРѕР±Р°РІР»СЏРµРј СЃС‚РѕР»Р±РµС† x (РѕРЅ РѕРєР°Р¶РµС‚СЃСЏ РїРµСЂРµРґ РїСЂРѕРІРµСЂРµРЅРЅС‹Рј СЃС‚РѕР»Р±С†РѕРј)
             current--;
         }
     }
@@ -64,27 +64,27 @@ int main() {
 
     int n, y;
 
-    cout << "Введите n: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ n: "; // РІРІРѕРґ
     cin >> n;
 
-    cout << "Введите y: "; // ввод
+    cout << "Р’РІРµРґРёС‚Рµ y: "; // РІРІРѕРґ
     cin >> y;
 
     int **matr = new int *[n];
     int *arr = new int[n];
 
-    cout << "Столбец для вставки: "; // ввод x
+    cout << "РЎС‚РѕР»Р±РµС† РґР»СЏ РІСЃС‚Р°РІРєРё: "; // РІРІРѕРґ x
     arr_in(arr, n);
     cout << endl;
 
-    cout << "Начальная матрица: " << endl;
-    matrix_in(matr, n, n); // ввод матрицы
+    cout << "РќР°С‡Р°Р»СЊРЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_in(matr, n, n); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
     cout << endl;
 
-    int length = task(matr, arr, n, n, y); // выполнение задачи, возвращает итоговую длину
+    int length = task(matr, arr, n, n, y); // РІС‹РїРѕР»РЅРµРЅРёРµ Р·Р°РґР°С‡Рё, РІРѕР·РІСЂР°С‰Р°РµС‚ РёС‚РѕРіРѕРІСѓСЋ РґР»РёРЅСѓ
 
-    cout << "Конечная матрица: " << endl;
-    matrix_out(matr, n, length); // вывод матрицы
+    cout << "РљРѕРЅРµС‡РЅР°СЏ РјР°С‚СЂРёС†Р°: " << endl;
+    matrix_out(matr, n, length); // РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 
     system("pause");
     return 0;
