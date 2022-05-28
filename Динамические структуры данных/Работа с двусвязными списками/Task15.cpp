@@ -21,6 +21,7 @@ void push(list *&head, list *&tail, int x) {
         temp->previous = tail;
     }
 
+    head->previous = temp;
     temp->next = head;
     tail = temp;
 }
@@ -34,7 +35,7 @@ void insert_after(list *&head, list *&tail, list *&element, int x) {
         temp->next = element->next;
     }
     else {
-        temp->next = NULL;
+        temp->next = head;
         tail = temp;
     }
 
@@ -42,7 +43,10 @@ void insert_after(list *&head, list *&tail, list *&element, int x) {
     temp->previous = element;
 }
 
-void delete_element(list *&element) {
+void delete_element(list *&head, list *&tail, list *&element) {
+    if (element == head) head = head->next;
+    else if (element == tail) tail = tail->next;
+
     element->previous->next = element->next;
     element->next->previous = element->previous;
 
@@ -86,14 +90,14 @@ void print_list(list *&head, list *&tail) {
 }
 
 void task(list *&head, list *&tail, int k, int n) {
-    list *current = get_next(head);
+    list *current = head;
 
     for (int j = 0; j < n-1; j++) {
-        for (int i = 0; i < k-1; i++)
+        for (int i = 0; i < k; i++)
             current = get_next(current);
 
         list *previous = get_previous(current);
-        delete_element(previous);
+        delete_element(head, tail, previous);
     }
 }
 
@@ -104,6 +108,7 @@ int main() {
     cin >> n >> k;
 
     input_list(head, tail, n);
+
 
     task(head, tail, k, n);
 
